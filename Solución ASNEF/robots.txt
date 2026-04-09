@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /cuenta/
+
+Sitemap: https://www.solucionasnef.com/sitemap.xml

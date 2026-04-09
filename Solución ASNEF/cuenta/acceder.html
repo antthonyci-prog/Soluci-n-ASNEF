@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acceder a tu cuenta | Solución ASNEF</title>
+    <meta
+      name="description"
+      content="Accede a tu cuenta para gestionar tu perfil, recibir avisos de nuevos artículos y entrar al panel si eres administrador."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#17233d" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="../logo-icono.png" type="image/png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="theme-home page-auth">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand-wrap">
+          <a class="brand" href="../index.html"><span data-site-name>Solución ASNEF</span></a>
+          <p class="brand-note">Acceso para miembros, lectores registrados y administración</p>
+        </div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+        <nav id="site-nav" class="site-nav" aria-label="Principal">
+          <a href="../index.html" class="nav-item">
+            <span class="nav-icon">⊙</span>
+            <span>Inicio</span>
+          </a>
+          <a href="../articulos/index.html" class="nav-item">
+            <span class="nav-icon">▬</span>
+            <span>Artículos</span>
+          </a>
+          <a href="../pages/asnef.html" class="nav-item">
+            <span class="nav-icon">◻</span>
+            <span>ASNEF</span>
+          </a>
+          <a href="registro.html" class="nav-item">
+            <span class="nav-icon">◇</span>
+            <span>Crear cuenta</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container page-hero-grid">
+          <div class="panel page-hero-copy">
+            <p class="breadcrumbs"><a href="../index.html">Inicio</a> / Acceder</p>
+            <p class="eyebrow accent">Cuenta</p>
+            <h1>Entra en tu área personal para seguir publicaciones y gestionar tu perfil.</h1>
+            <p>
+              Desde tu cuenta puedes actualizar tus datos, activar avisos de nuevos artículos y, si eres administrador,
+              acceder al panel para publicar contenido nuevo.
+            </p>
+          </div>
+          <aside class="panel page-hero-side">
+            <div class="metric-card">
+              <span class="metric-value">Perfil</span>
+              <span class="metric-label">Datos y preferencias</span>
+              <p>Edita tu información y decide si quieres avisos de nuevas publicaciones.</p>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">Avisos</span>
+              <span class="metric-label">Nuevos artículos</span>
+              <p>Recibe notificaciones internas cuando SA publique nuevo contenido.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container account-layout">
+          <article class="contact-card">
+            <p class="eyebrow">Qué tendrás dentro</p>
+            <h2>Una cuenta pensada para lectores y para la administración.</h2>
+            <div class="checklist">
+              <ul>
+                <li>Acceso a tu perfil y preferencias personales.</li>
+                <li>Activación de avisos cuando haya artículos nuevos.</li>
+                <li>Historial de notificaciones dentro de tu cuenta.</li>
+                <li>Entrada al panel admin si tu usuario tiene permisos.</li>
+              </ul>
+            </div>
+          </article>
+
+          <form class="lead-form compact-form auth-form" data-login-form novalidate>
+            <div class="hero-form-intro">
+              <p class="eyebrow">Entrar</p>
+              <h2>Accede con tu correo y contraseña</h2>
+              <p>Si todavía no tienes cuenta, puedes crearla en menos de un minuto.</p>
+            </div>
+
+            <div class="form-grid-2">
+              <label class="form-field-full">
+                Correo electrónico
+                <input type="email" name="email" autocomplete="email" placeholder="tuemail@dominio.com" required />
+              </label>
+              <label class="form-field-full">
+                Contraseña
+                <input type="password" name="password" autocomplete="current-password" placeholder="Tu contraseña" required />
+              </label>
+            </div>
+
+            <div class="inline-actions auth-form-actions">
+              <button type="submit" class="button button-primary">Entrar</button>
+              <button type="button" class="button button-secondary" data-reset-password>Recuperar acceso</button>
+            </div>
+            <p class="form-feedback" data-auth-feedback aria-live="polite"></p>
+            <div data-auth-setup></div>
+            <p class="form-meta">
+              Si el acceso público aún no está activo, verás aquí el aviso de configuración pendiente.
+            </p>
+            <p class="form-meta">
+              ¿No tienes cuenta todavía? <a href="registro.html">Crear cuenta</a>
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand brand-footer" href="../index.html"><span data-site-name>Solución ASNEF</span></a>
+          <p>Área privada para perfiles, avisos de artículos y administración.</p>
+        </div>
+        <div>
+          <h2>Explorar</h2>
+          <ul class="footer-links">
+            <li><a href="../articulos/index.html">Artículos</a></li>
+            <li><a href="../pages/asnef.html">ASNEF</a></li>
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Cuenta</h2>
+          <ul class="footer-links">
+            <li><a href="registro.html">Crear cuenta</a></li>
+            <li><a href="perfil.html">Mi perfil</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© <span data-current-year></span> <span data-site-name>Solución ASNEF</span>.</p>
+    </footer>
+
+    <script src="../site-config.js"></script>
+    <script src="../lead-config.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

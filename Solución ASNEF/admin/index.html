@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Panel de administración | Solución ASNEF</title>
+    <link rel="icon" href="../logo-icono.png" type="image/png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="theme-home page-admin">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand-wrap">
+          <a class="brand" href="../index.html"><span data-site-name>Solución ASNEF</span></a>
+          <p class="brand-note">Panel seguro para artículos, miembros y avisos</p>
+        </div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+        <nav id="site-nav" class="site-nav" aria-label="Principal">
+          <a href="../index.html" class="nav-item">
+            <span class="nav-icon">⊙</span>
+            <span>Inicio</span>
+          </a>
+          <a href="../articulos/index.html" class="nav-item">
+            <span class="nav-icon">▬</span>
+            <span>Blog público</span>
+          </a>
+          <a href="../cuenta/perfil.html" class="nav-item">
+            <span class="nav-icon">∅</span>
+            <span>Mi perfil</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container page-hero-grid">
+          <div class="panel page-hero-copy">
+            <p class="breadcrumbs"><a href="../index.html">Inicio</a> / Admin</p>
+            <p class="eyebrow accent">Administración</p>
+            <h1>Publica artículos nuevos y revisa la actividad de la web desde un panel seguro.</h1>
+            <p>
+              Este panel sustituye la antigua contraseña local del navegador. Ahora depende de cuentas reales, perfil
+              de administrador y permisos de base de datos.
+            </p>
+          </div>
+          <aside class="panel page-hero-side">
+            <div class="metric-card">
+              <span class="metric-value">Artículos</span>
+              <span class="metric-label">Publicación dinámica</span>
+              <p>Crea, guarda y publica textos nuevos sin tocar archivos HTML manuales.</p>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">Avisos</span>
+              <span class="metric-label">Suscriptores</span>
+              <p>Cuando publicas, el sistema genera avisos internos para usuarios registrados.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container admin-wrap">
+          <div class="admin-state-card" data-admin-guard>
+            <strong>Comprobando acceso...</strong>
+            <p>Si no has iniciado sesión o tu cuenta aún no es administradora, aquí aparecerán las instrucciones.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-admin-shell hidden>
+        <div class="container">
+          <div class="admin-metric-grid">
+            <article class="admin-metric-card">
+              <strong>Miembros</strong>
+              <span data-admin-metric="members">0</span>
+            </article>
+            <article class="admin-metric-card">
+              <strong>Artículos totales</strong>
+              <span data-admin-metric="articles">0</span>
+            </article>
+            <article class="admin-metric-card">
+              <strong>Publicados</strong>
+              <span data-admin-metric="published">0</span>
+            </article>
+            <article class="admin-metric-card">
+              <strong>Suscritos a avisos</strong>
+              <span data-admin-metric="subscribers">0</span>
+            </article>
+          </div>
+
+          <div class="admin-dashboard-grid">
+            <div class="admin-panel-stack">
+              <article class="admin-card">
+                <p class="eyebrow">Editor</p>
+                <h2 data-admin-editor-title>Nuevo artículo</h2>
+                <p class="admin-editor-help">
+                  Usa texto simple con una sintaxis mínima: `##` para títulos, `###` para subtítulos, `-` para listas y
+                  `>` para notas destacadas.
+                </p>
+
+                <form class="lead-form compact-form" data-admin-article-form novalidate>
+                  <input type="hidden" name="article_id" value="" />
+                  <div class="form-grid-2">
+                    <label>
+                      Título
+                      <input type="text" name="title" placeholder="Ej. Cómo revisar una deuda antes de reclamar" required />
+                    </label>
+                    <label>
+                      Slug
+                      <input type="text" name="slug" placeholder="como-revisar-una-deuda" required />
+                    </label>
+                    <label>
+                      Categoría
+                      <input type="text" name="category" placeholder="ASNEF, Embargos, Deuda..." />
+                    </label>
+                    <label>
+                      Tiempo de lectura
+                      <input type="text" name="read_time" placeholder="6 min" />
+                    </label>
+                    <label class="form-field-full">
+                      Resumen breve
+                      <textarea name="excerpt" placeholder="Resumen corto para listados, SEO y tarjetas." required></textarea>
+                    </label>
+                    <label class="form-field-full">
+                      Nota de apertura
+                      <input type="text" name="hero_note" placeholder="Frase corta opcional para reforzar la introducción." />
+                    </label>
+                    <label class="form-field-full">
+                      Cuerpo del artículo
+                      <textarea
+                        name="body_markdown"
+                        placeholder="## Idea principal&#10;Explica con claridad el contenido.&#10;&#10;- Punto importante&#10;- Otro punto&#10;&#10;> Nota destacada"
+                        required
+                      ></textarea>
+                    </label>
+                    <label>
+                      Estado
+                      <select name="status">
+                        <option value="draft">Borrador</option>
+                        <option value="published">Publicado</option>
+                      </select>
+                    </label>
+                    <label class="consent-label">
+                      <input type="checkbox" name="is_featured" />
+                      Marcar como destacado en el listado de artículos nuevos.
+                    </label>
+                  </div>
+
+                  <div class="inline-actions auth-form-actions">
+                    <button type="submit" class="button button-primary">Guardar artículo</button>
+                    <button type="button" class="button button-secondary" data-admin-reset>Limpiar editor</button>
+                  </div>
+                  <p class="form-feedback" data-admin-feedback aria-live="polite"></p>
+                </form>
+              </article>
+
+              <article class="admin-card">
+                <p class="eyebrow">Artículos</p>
+                <h2>Últimas publicaciones y borradores</h2>
+                <div class="admin-list-stack" data-admin-articles>
+                  <div class="account-empty-state">
+                    <strong>Cargando artículos...</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="admin-panel-stack">
+              <article class="admin-card">
+                <p class="eyebrow">Miembros</p>
+                <h2>Usuarios recientes y preferencias</h2>
+                <div class="admin-list-stack" data-admin-members>
+                  <div class="account-empty-state">
+                    <strong>Cargando miembros...</strong>
+                  </div>
+                </div>
+              </article>
+
+              <article class="admin-card">
+                <p class="eyebrow">Publicación</p>
+                <h2>Notas importantes antes de lanzar contenido nuevo</h2>
+                <div class="checklist">
+                  <ul>
+                    <li>Los artículos publicados aparecen en la zona dinámica de `articulos/index.html`.</li>
+                    <li>Los avisos internos se generan para usuarios con notificaciones activadas.</li>
+                    <li>Los leads del formulario siguen entrando por <span data-form-processor>Proveedor del formulario o CRM</span>.</li>
+                    <li>Para dejarlo totalmente público, aún debes configurar `auth-config.js` y ejecutar `supabase-schema.sql`.</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../site-config.js"></script>
+    <script src="../lead-config.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

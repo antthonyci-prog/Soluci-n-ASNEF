@@ -1,0 +1,83 @@
+================================================================================
+CHECKLIST - PUBLICACION (Solucion ASNEF)
+================================================================================
+
+Este archivo resume lo que debes completar antes de dar la web por lista.
+
+--------------------------------------------------------------------------------
+1. site-config.js
+--------------------------------------------------------------------------------
+- siteUrl: dominio final con https.
+- brandMark: deja `SA` salvo que quieras cambiar el monograma.
+- publicContactEmail y privacyEmail: correos reales.
+- ownerName, taxId y legalAddress: datos legales reales.
+- analyticsProvider y cookieManager: herramientas reales.
+- ads.adsenseClient y adsTxtLine: datos reales si vas a monetizar.
+
+--------------------------------------------------------------------------------
+2. lead-config.js
+--------------------------------------------------------------------------------
+- endpoint: URL real y probada del formulario.
+- method y headers: revisados segun tu proveedor.
+
+--------------------------------------------------------------------------------
+3. auth-config.js
+--------------------------------------------------------------------------------
+- supabaseUrl: URL real del proyecto.
+- supabaseAnonKey: anon key real.
+- confirmEmail: decide si quieres validar por correo.
+
+--------------------------------------------------------------------------------
+4. Supabase
+--------------------------------------------------------------------------------
+- Ejecutado `supabase-schema.sql`.
+- Tu usuario ya se ha registrado desde `cuenta/registro.html`.
+- Tu usuario ya ha sido promovido a admin en `public.admin_users`.
+
+--------------------------------------------------------------------------------
+5. Flujos que debes probar
+--------------------------------------------------------------------------------
+- Registro.
+- Login.
+- Edicion del perfil.
+- Activacion de avisos.
+- Acceso al panel admin.
+- Alta de un articulo en borrador.
+- Publicacion de un articulo nuevo.
+- Visualizacion del articulo en `articulos/publicacion.html?slug=...`.
+- Aparicion del articulo en `articulos/index.html`.
+- Aparicion de avisos internos para usuarios suscritos.
+
+--------------------------------------------------------------------------------
+6. Legal y privacidad
+--------------------------------------------------------------------------------
+- `legal/aviso-legal.html` revisado.
+- `legal/politica-privacidad.html` alineada con formulario, cuentas y perfiles.
+- `legal/politica-cookies.html` alineada con cookies y publicidad reales.
+
+--------------------------------------------------------------------------------
+7. Publicidad
+--------------------------------------------------------------------------------
+- `ads.txt` real.
+- ID de AdSense real.
+- CMP lista si corresponde.
+- Anuncios revisados en movil y desktop.
+
+--------------------------------------------------------------------------------
+8. Archivos publicos
+--------------------------------------------------------------------------------
+- `robots.txt` con tu dominio.
+- `sitemap.xml` con tu dominio.
+- `favicon.svg` correcto.
+- `404.html` accesible.
+
+--------------------------------------------------------------------------------
+9. Importante
+--------------------------------------------------------------------------------
+- Los avisos internos ya funcionan con la base actual.
+- El envio real de emails automaticos por nuevos articulos requiere integrar un proveedor externo si quieres dar ese paso.
+- El panel antiguo con contrasena en navegador ya no es la via recomendada.
+
+================================================================================
+Fin del checklist
+================================================================================

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASNEF - Setup Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        .card ul {
+            list-style: none;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+        .card ul li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .badge.optional {
+            background: #ffa500;
+        }
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 15px 0;
+            color: #333;
+        }
+        .step {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .step-number {
+            min-width: 40px;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-content strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .step-content em {
+            color: #999;
+            font-style: italic;
+        }
+        .cta {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+        .cta:hover {
+            background: #764ba2;
+        }
+        .cta.secondary {
+            background: #f5f5f5;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        .cta.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        .files-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .files-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .file-icon {
+            width: 20px;
+            text-align: center;
+            color: #667eea;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            color: #856404;
+            font-size: 0.9rem;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            color: #155724;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 ASNEF - Setup Dashboard</h1>
+            <p>Tu sitio web está listo para ser configurado. Sigue los pasos a continuación.</p>
+        </div>
+
+        <div class="grid">
+            <!-- TARJETA 1: ESTADO ACTUAL -->
+            <div class="card">
+                <h2>✅ Estado Actual</h2>
+                <p>Tu proyecto tiene implementado:</p>
+                <ul>
+                    <li>Sistema de autenticación (email/password)</li>
+                    <li>Base de datos con Supabase</li>
+                    <li>Panel de administrador</li>
+                    <li>Perfiles de usuario</li>
+                    <li>Notificaciones automáticas</li>
+                    <li>Blog dinámico</li>
+                </ul>
+                <p style="margin-top: 15px; color: #666; font-style: italic;">
+                    Lo que falta: Tus credenciales de Supabase y datos del sitio.
+                </p>
+            </div>
+
+            <!-- TARJETA 2: ARCHIVOS NUEVOS CREADOS -->
+            <div class="card">
+                <h2>📝 Nuevos Archivos Creados</h2>
+                <p>Documentación para tu configuración:</p>
+                <div class="files-box">
+                    <div class="file-item">
+                        <span class="file-icon">📖</span>
+                        <strong>GUIA-CONFIGURACION-COMPLETA.md</strong>
+                        <em>(45-60 min)</em>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-icon">⚡</span>
+                        <strong>REFERENCIA-RAPIDA.txt</strong>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-icon">⚙️</span>
+                        <strong>EJEMPLO-CONFIGURACION.js</strong>
+                    </div>
+                    <div class="file-item">
+                        <span class="file-icon">🔧</span>
+                        <strong>setup.sh</strong>
+                    </div>
+                </div>
+                <p style="color: #666; font-size: 0.9rem;">
+                    Abre <strong>GUIA-CONFIGURACION-COMPLETA.md</strong> en tu editor para seguir paso a paso.
+                </p>
+            </div>
+
+            <!-- TARJETA 3: PRIMEROS PASOS -->
+            <div class="card">
+                <h2>🎯 5 Pasos Clave</h2>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Crea proyecto en Supabase</strong>
+                        <em>supabase.com (gratuito)</em>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Copia credenciales</strong>
+                        <em>URL + API Key</em>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Llena archivos de config</strong>
+                        <em>auth-config.js + site-config.js</em>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Regístrate como admin</strong>
+                        <em>Email + password</em>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>Publica en Netlify</strong>
+                        <em>Conecta dominio (HTTPS)</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 4: LO QUE NECESITAS -->
+            <div class="card">
+                <h2>📋 Información que Necesitas</h2>
+                <p><strong>Antes de empezar, ten listo:</strong></p>
+                <ul>
+                    <li>Tu email real</li>
+                    <li>Tu nombre o razón social</li>
+                    <li>Tu NIF/CIF</li>
+                    <li>Tu teléfono de contacto</li>
+                    <li>Tu dirección legal</li>
+                    <li>Tu dominio (www.tudominio.com)</li>
+                </ul>
+                <div class="warning">
+                    ⚠️ <strong>Importante:</strong> El email de Supabase será tu usuario admin. Guárdalo bien.
+                </div>
+            </div>
+
+            <!-- TARJETA 5: FUNCIONALIDADES -->
+            <div class="card">
+                <h2>✨ Lo que tu sitio hace</h2>
+                <h4 style="margin-top: 15px; color: #333; font-weight: bold;">Para usuarios:</h4>
+                <ul>
+                    <li>Registrarse y crear perfil</li>
+                    <li>Personalizar su información</li>
+                    <li>Recibir notificaciones de artículos</li>
+                    <li>Cambiar contraseña</li>
+                </ul>
+                <h4 style="margin-top: 15px; color: #333; font-weight: bold;">Para ti (admin):</h4>
+                <ul>
+                    <li>Panel de control con estadísticas</li>
+                    <li>Crear/editar/publicar artículos</li>
+                    <li>Ver todos los usuarios</li>
+                    <li>Sistema automático de notificaciones</li>
+                </ul>
+            </div>
+
+            <!-- TARJETA 6: SIGUIENTE -->
+            <div class="card">
+                <h2>→ Próximo Paso</h2>
+                <p><strong>Abre el archivo:</strong></p>
+                <div class="code-block">GUIA-CONFIGURACION-COMPLETA.md</div>
+                <p>Está explicado paso a paso, con screenshots mental de exactamente qué hacer en cada punto.</p>
+                <p style="margin-top: 20px; color: #999; font-size: 0.9rem;">
+                    Tiempo estimado: 45-60 minutos desde 0 hasta tener el sitio funcionando localmente.
+                </p>
+                <a href="#" class="cta" onclick="alert('Abre el archivo en VS Code: GUIA-CONFIGURACION-COMPLETA.md'); return false;">
+                    📖 Abrir Guía
+                </a>
+            </div>
+        </div>
+
+        <div class="grid" style="margin-top: 40px;">
+            <!-- INFO ADICIONAL -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <h2>🔐 Credenciales de Ejemplo (para que veas dónde va cada cosa)</h2>
+                <p>Estos son valores <strong>FALSOS</strong> solo para referencia:</p>
+                <div class="code-block">
+// auth-config.js
+window.AUTH_CONFIG = {
+  supabaseUrl: 'https://abcdef.supabase.co',
+  supabaseAnonKey: 'eyJhbGci...',
+};
+
+// site-config.js
+window.SITE_CONFIG = {
+  siteUrl: 'https://www.tudominio.com',
+  publicContactEmail: 'tu@email.com',
+  ownerName: 'Tu Nombre',
+  taxId: '12345678A',
+  ...
+};
+                </div>
+                <p>Los valores reales los obtendrás de Supabase. La guía te dice exactamente dónde.</p>
+            </div>
+        </div>
+
+        <div class="success" style="margin-top: 40px;">
+            <strong>✅ ¡Buenas noticias!</strong><br>
+            Todo el código de autenticación, admin y notificaciones ya está implementado. Solo necesitas:
+            <br/>1) Credenciales de Supabase
+            <br/>2) Tus datos del negocio
+            <br/>3) 🚀 ¡A publicar!
+        </div>
+
+        <div class="footer">
+            <p>ASNEF Solution • Configuración Completa 2024</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                Para preguntas específicas, abre un terminal en la carpeta del proyecto.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

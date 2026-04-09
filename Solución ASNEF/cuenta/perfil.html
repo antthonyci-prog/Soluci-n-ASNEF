@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi perfil | Solución ASNEF</title>
+    <meta
+      name="description"
+      content="Gestiona tu perfil, personaliza tus datos y decide si quieres recibir avisos cuando SA publique nuevos artículos."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#17233d" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="../logo-icono.png" type="image/png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="theme-home page-account">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand-wrap">
+          <a class="brand" href="../index.html"><span data-site-name>Solución ASNEF</span></a>
+          <p class="brand-note">Perfil personal, preferencias y avisos de nuevas publicaciones</p>
+        </div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+        <nav id="site-nav" class="site-nav" aria-label="Principal">
+          <a href="../index.html" class="nav-item">
+            <span class="nav-icon">⊙</span>
+            <span>Inicio</span>
+          </a>
+          <a href="../articulos/index.html" class="nav-item">
+            <span class="nav-icon">▬</span>
+            <span>Artículos</span>
+          </a>
+          <a href="../pages/contacto.html" class="nav-item">
+            <span class="nav-icon">◆</span>
+            <span>Contacto</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container page-hero-grid">
+          <div class="panel page-hero-copy">
+            <p class="breadcrumbs"><a href="../index.html">Inicio</a> / Mi perfil</p>
+            <p class="eyebrow accent">Perfil</p>
+            <h1>Gestiona tus datos, personaliza tu cuenta y elige cómo quieres seguir los nuevos artículos.</h1>
+            <p>
+              Esta área te permite completar tu perfil con calma, cambiar tus preferencias y decidir si quieres
+              notificaciones internas cada vez que publiquemos contenido nuevo.
+            </p>
+          </div>
+          <aside class="panel page-hero-side">
+            <div class="metric-card">
+              <span class="metric-value">Perfil completo</span>
+              <span class="metric-label">Datos personales y preferencias</span>
+              <p>Rellena lo que quieras conservar en tu cuenta y actualízalo cuando lo necesites.</p>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">Avisos</span>
+              <span class="metric-label">Nuevos artículos de SA</span>
+              <p>Activa o desactiva notificaciones según como prefieras seguir la web.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container account-grid">
+          <aside class="contact-card profile-summary-card">
+            <div class="profile-avatar" data-profile-avatar>SA</div>
+            <p class="eyebrow">Tu cuenta</p>
+            <h2 data-profile-name>Mi perfil</h2>
+            <p class="profile-summary-copy" data-profile-email>Accede para ver tu correo</p>
+            <div class="profile-summary-meta">
+              <span class="profile-pill" data-profile-role>Miembro</span>
+              <span class="profile-pill profile-pill-soft" data-profile-status>Sin avisos activos</span>
+            </div>
+            <div class="checklist">
+              <ul>
+                <li>Edita nombre visible, datos de contacto y preferencias.</li>
+                <li>Activa avisos para enterarte de nuevos artículos.</li>
+                <li>Solicita cambio de contraseña cuando lo necesites.</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="account-main">
+            <form class="lead-form profile-form" data-profile-form novalidate>
+              <div class="hero-form-intro">
+                <p class="eyebrow">Datos del perfil</p>
+                <h2>Personaliza tu cuenta con todos los datos que quieras guardar</h2>
+                <p>No hace falta rellenarlo todo. Puedes dejar solo lo que te resulte útil.</p>
+              </div>
+
+              <div class="profile-section-grid">
+                <label>
+                  Nombre visible
+                  <input type="text" name="display_name" autocomplete="nickname" />
+                </label>
+                <label>
+                  Nombre
+                  <input type="text" name="first_name" autocomplete="given-name" />
+                </label>
+                <label>
+                  Apellidos
+                  <input type="text" name="last_name" autocomplete="family-name" />
+                </label>
+                <label>
+                  Teléfono
+                  <input type="tel" name="phone" autocomplete="tel" />
+                </label>
+                <label>
+                  Ciudad
+                  <input type="text" name="city" autocomplete="address-level2" />
+                </label>
+                <label>
+                  Provincia
+                  <input type="text" name="province" autocomplete="address-level1" />
+                </label>
+                <label>
+                  País
+                  <input type="text" name="country" autocomplete="country-name" />
+                </label>
+                <label>
+                  Fecha de nacimiento
+                  <input type="date" name="birth_date" />
+                </label>
+                <label>
+                  Ocupación
+                  <input type="text" name="occupation" autocomplete="organization-title" />
+                </label>
+                <label>
+                  Web o red principal
+                  <input type="url" name="website_url" placeholder="https://..." />
+                </label>
+                <label class="form-field-full">
+                  URL de avatar o foto
+                  <input type="url" name="avatar_url" placeholder="https://..." />
+                </label>
+                <label class="form-field-full">
+                  Tema principal que te interesa
+                  <input type="text" name="main_topic" placeholder="ASNEF, reclamaciones, embargos..." />
+                </label>
+                <label class="form-field-full">
+                  Biografía o notas de perfil
+                  <textarea name="bio" placeholder="Cuanto más te describa mejor, si quieres completar esta parte."></textarea>
+                </label>
+              </div>
+
+              <div class="profile-preferences">
+                <strong>Preferencias de avisos</strong>
+                <label class="consent-label">
+                  <input type="checkbox" name="notify_new_articles" />
+                  Quiero ver avisos internos cada vez que SA publique un nuevo artículo.
+                </label>
+                <label class="consent-label">
+                  <input type="checkbox" name="notify_browser" />
+                  Quiero avisos del navegador cuando tenga la página abierta y haya publicaciones nuevas.
+                </label>
+                <label class="consent-label">
+                  <input type="checkbox" name="notify_email" />
+                  Quiero dejar guardada mi preferencia para futuros avisos por correo.
+                </label>
+              </div>
+
+              <div class="inline-actions auth-form-actions">
+                <button type="submit" class="button button-primary">Guardar cambios</button>
+                <button type="button" class="button button-secondary" data-profile-reset-password>Cambiar contraseña</button>
+              </div>
+              <p class="form-feedback" data-profile-feedback aria-live="polite"></p>
+              <div data-auth-setup></div>
+            </form>
+
+            <article class="contact-card profile-notifications-card">
+              <p class="eyebrow">Avisos recientes</p>
+              <h2>Últimas notificaciones de publicaciones</h2>
+              <div class="profile-notification-list" data-profile-notification-list>
+                <div class="account-empty-state">
+                  <strong>Cargando avisos...</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand brand-footer" href="../index.html"><span data-site-name>Solución ASNEF</span></a>
+          <p>Tu zona privada para perfil, avisos y seguimiento de publicaciones.</p>
+        </div>
+        <div>
+          <h2>Explorar</h2>
+          <ul class="footer-links">
+            <li><a href="../articulos/index.html">Artículos</a></li>
+            <li><a href="../pages/asnef.html">ASNEF</a></li>
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Cuenta</h2>
+          <ul class="footer-links">
+            <li><a href="acceder.html">Entrar</a></li>
+            <li><a href="registro.html">Crear cuenta</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© <span data-current-year></span> <span data-site-name>Solución ASNEF</span>.</p>
+    </footer>
+
+    <script src="../site-config.js"></script>
+    <script src="../lead-config.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

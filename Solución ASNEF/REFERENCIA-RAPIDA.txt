@@ -1,0 +1,108 @@
+# Archivo de Referencia Rápida - ASNEF
+# Úsalo como checklist mientras configuras
+
+## CREDENCIALES QUE NECESITAS
+
+### 1. De Supabase (después de crear proyecto)
+```
+supabaseUrl: https://[project-id].supabase.co
+supabaseAnonKey: eyJhbGciOi...
+```
+
+### 2. De tu dominio
+```
+Dominio: www.tudominio.com
+Email real: tu@email.com
+Teléfono: +34 XXX XX XX XX
+NIF/CIF: xxxxxxxxxx
+```
+
+### 3. De Formspree (OPCIONAL)
+```
+FormspreeEndpoint: https://formspree.io/f/[id]
+```
+
+---
+
+## ARCHIVOS A COMPLETAR ANTES DE PUBLICAR
+
+Abre cada archivo en VS Code y rellena los campos con ❌
+
+### auth-config.js
+```javascript
+window.AUTH_CONFIG = {
+  supabaseUrl: '', ❌ REQUERIDO
+  supabaseAnonKey: '', ❌ REQUERIDO
+  // resto igual
+};
+```
+
+### site-config.js
+```javascript
+window.SITE_CONFIG = {
+  siteUrl: '', ❌ REQUERIDO - tu dominio
+  publicContactEmail: '', ❌ REQUERIDO
+  publicContactPhone: '', ❌ REQUERIDO
+  ownerName: '', ❌ REQUERIDO
+  taxId: '', ❌ REQUERIDO
+  legalAddress: '', ❌ REQUERIDO
+  // lo demás puede quedar vacío o con defaults
+};
+```
+
+### lead-config.js (OPCIONAL)
+```javascript
+window.LEAD_CONFIG = {
+  endpoint: '', // Tu endpoint de Formspree o similar
+};
+```
+
+---
+
+## PASOS CLAVE EN ORDEN
+
+1. ✅ Crear proyecto en Supabase
+2. ✅ Copiar credenciales de Supabase
+3. ✅ Ejecutar script SQL en Supabase
+4. ✅ Completar auth-config.js
+5. ✅ Completar site-config.js
+6. ✅ Registrarte en tu sitio
+7. ✅ Convertirte en admin (SQL INSERT)
+8. ✅ Probar localmente todo
+9. ✅ Conectar Git repository
+10. ✅ Desplegar en Netlify
+11. ✅ Configurar dominio DNS
+12. ✅ Esperar DNS (24-48h)
+13. ✅ Verificar HTTPS funciona
+14. ✅ Empezar a crear artículos
+
+---
+
+## VERIFICAR QUE FUNCIONA
+
+Pruedas locales (antes de publicar):
+- [ ] Login/Registro funciona
+- [ ] Email confirmación llega
+- [ ] Veo panel Admin cuando inicio sesión como admin
+- [ ] Puedo crear artículo de prueba
+- [ ] Artículo aparece en blog
+- [ ] Notificación envía a otros usuarios
+
+---
+
+## SI ALGO FALLA
+
+Abre navegador > F12 > Console > Copia el error rojo
+
+Errores comunes:
+- "Cannot read properties of undefined 'supabaseUrl'" → auth-config.js mal completado
+- "RLS policy violation" → Usuario no tiene permisos en Supabase
+- "Network error" → Supabase URL incorrecta o sin acceso a internet
+
+---
+
+## CONTACTOS ÚTILES
+
+- Supabase Docs: https://supabase.com/docs
+- Netlify Docs: https://docs.netlify.com
+- GitHub Issues: Para preguntas sobre el código

@@ -1,0 +1,15 @@
+window.AUTH_CONFIG = {
+  provider: 'supabase',
+  supabaseUrl: 'https://hggqwcsieegkcdiuizqm.supabase.co',
+  supabaseAnonKey: 'sb_publishable_LDJUjmmuE97vs40YzWkwBg_Vv5FE4QI',
+  confirmEmail: true,
+  notificationPollMs: 60000,
+  loginPath: 'cuenta/acceder.html',
+  signupPath: 'cuenta/registro.html',
+  profilePath: 'cuenta/perfil.html',
+  adminPath: 'admin/index.html',
+  articlesPath: 'articulos/index.html',
+  articlePath: 'articulos/publicacion.html',
+  articleNotificationsLabel: 'Avísame cuando SA publique un nuevo artículo',
+  resetPasswordRedirectPath: 'cuenta/perfil.html',
+};
